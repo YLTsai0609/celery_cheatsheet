@@ -22,7 +22,7 @@ use dummy job to simulated
 
 1. message broker
 
-message broker (訊息中繼站/訊息經紀人) - Which collects the reponse and manages them in a queue. Also makes worker to get their task and tracking the job is done or not. We need a brain to do that. It's Message Broker
+message broker (訊息中繼站/訊息經紀人) - Which collects the reponse and manages them in a queue. Also makes worker gets their task and tracks the job is done or not. We need a brain to do that. It's Message Broker.
 
 1. RabbitMQ
 2. Redis
@@ -43,8 +43,8 @@ def add(x, y):
 
 Celery object
 
-$1 : name of the current module
-$2 : broker keyword argument(the url of the message broker)
+`$1` : name of the current module
+`$2` : broker keyword argument(the url of the message broker)
 
 pyamqp://localhost with RabbitMQ
 
@@ -52,11 +52,9 @@ redis://localhost with Redis
 
 define task using `@app.task` with python function
 
-[TODO] rabbitmq server url how to set it.
-
 ## Installation
 
-1. `rabbitmq-server`
+1. `rabbitmq-server` or `redis`
 
    1. Ubuntu/Debian - sudo apt-get install rabbitmq-server
    2. Docker - docker run -d -p 5672:5672 rabbitmq
@@ -67,7 +65,8 @@ check your port is open by
 
 2. `celery`
 
- `pip install celery`
+`pip install celery` - celery only
+`pip install "celery[redis]"` - bundle
 
 # Reference
 
